@@ -3,8 +3,9 @@ name = "microblog"
 version = "0.1.0"
 description = "personal microblog site that will focus on data engineering technologies"
 authors = ["Scott Saenz <scottrsaenz@gmail.com>"]
-license = "APACHE 2.0"
+license = "Apache-2.0"
 readme = "README.md"
+package-mode = false
 
 [tool.poetry.dependencies]
 python = "^3.11"
