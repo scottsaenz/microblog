@@ -36,6 +36,9 @@ class EditProfileForm(FlaskForm):
             )
             if user is not None:
                 raise ValidationError('Please use a different username.')
+
+class EmptyForm(FlaskForm):
+    submit = SubmitField('Submit')
     
 def validate_email(self, email):
     user = db.session.scalar(sa.select(User).where(
