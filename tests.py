@@ -12,9 +12,10 @@ class UserModelCase(unittest.TestCase):
     self.app_context.push()
     db.create_all()
     
-  def teardown(self):
+  def tearDown(self):
     db.session.remove()
     db.drop_all()
+    db.session.commit()
     self.app_context.pop()
     
   def test_password_hashing(self):
@@ -51,16 +52,17 @@ class UserModelCase(unittest.TestCase):
     self.assertEqual(u1_following[0].username, 'susan')
     u1.unfollow(u2)
     db.session.commit()
+    
     self.assertFalse(u1.is_following(u2))
     self.assertEqual(u1.following_count(), 0)
     self.assertEqual(u2.followers_count(), 0)
     
   def test_follow_posts(self):
     # create four users
-    u1 = User(username = 'john1', email = 'john1@example.com')
-    u2 = User(username='susan1', email='susan1@example.com')
-    u3 = User(username='mary1', email='mary1@example.com')
-    u4 = User(username='david1', email='david1@example.com')
+    u1 = User(username = 'john', email = 'john@example.com')
+    u2 = User(username='susan4', email='susan5@example.com')
+    u3 = User(username='mary6', email='mary6@example.com')
+    u4 = User(username='david7', email='david7@example.com')
     db.session.add_all([u1, u2, u3, u4])
     
     # create four posts
