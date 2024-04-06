@@ -62,6 +62,7 @@ SQLAlchemy = "^2.0.29"
 urllib3 = "^2.2.1"
 Werkzeug = "^3.0.1"
 WTForms = "^3.1.2"
+elasticsearch = "^8.13.0"
 
 
 [build-system]

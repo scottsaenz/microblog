@@ -268,13 +268,13 @@ wmi = ["wmi (>=1.5.1)"]
 
 [[package]]
 name = "elastic-transport"
-version = "8.12.0"
+version = "8.13.0"
 description = "Transport classes and utilities shared among Python Elastic client libraries"
 optional = false
 python-versions = ">=3.7"
 files = [
-    {file = "elastic-transport-8.12.0.tar.gz", hash = "sha256:48839b942fcce199eece1558ecea6272e116c58da87ca8d495ef12eb61effaf7"},
-    {file = "elastic_transport-8.12.0-py3-none-any.whl", hash = "sha256:87d9dc9dee64a05235e7624ed7e6ab6e5ca16619aa7a6d22e853273b9f1cfbee"},
+    {file = "elastic-transport-8.13.0.tar.gz", hash = "sha256:2410ec1ff51221e8b3a01c0afa9f0d0498e1386a269283801f5c12f98e42dc45"},
+    {file = "elastic_transport-8.13.0-py3-none-any.whl", hash = "sha256:aec890afdddd057762b27ff3553b0be8fa4673ec1a4fd922dfbd00325874bb3d"},
 ]
 
 [package.dependencies]
@@ -282,7 +282,26 @@ certifi = "*"
 urllib3 = ">=1.26.2,<3"
 
 [package.extras]
-develop = ["aiohttp", "furo", "mock", "pytest", "pytest-asyncio", "pytest-cov", "pytest-httpserver", "pytest-mock", "requests", "sphinx (>2)", "sphinx-autodoc-typehints", "trustme"]
+develop = ["aiohttp", "furo", "httpx", "mock", "opentelemetry-api", "opentelemetry-sdk", "orjson", "pytest", "pytest-asyncio", "pytest-cov", "pytest-httpserver", "pytest-mock", "requests", "respx", "sphinx (>2)", "sphinx-autodoc-typehints", "trustme"]
+
+[[package]]
+name = "elasticsearch"
+version = "8.13.0"
+description = "Python client for Elasticsearch"
+optional = false
+python-versions = ">=3.7"
+files = [
+    {file = "elasticsearch-8.13.0-py3-none-any.whl", hash = "sha256:4aaf49253e974eb500f01136a487bdd0f09d3cafd37a0456eff6acfff0c9199b"},
+    {file = "elasticsearch-8.13.0.tar.gz", hash = "sha256:e4ebebb22d09f0ef839c26b6aa98e19ccd636bcb77f08c12b562b02cacd5e744"},
+]
+
+[package.dependencies]
+elastic-transport = ">=8.13,<9"
+
+[package.extras]
+async = ["aiohttp (>=3,<4)"]
+orjson = ["orjson (>=3)"]
+requests = ["requests (>=2.4.0,<3.0.0)"]
 
 [[package]]
 name = "elasticsearch8"
@@ -1295,4 +1314,4 @@ email = ["email-validator"]
 [metadata]
 lock-version = "2.0"
 python-versions = "^3.11"
-content-hash = "72a0fe9269c45e3d447ec88210fd5eb2b53678e3395b406cd4095fec01017356"
+content-hash = "669590d7c7e01010f17402c3ead2cf290e523f17e10a55be33e81432457a5c89"
