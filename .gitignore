@@ -213,3 +213,5 @@ cython_debug/
 
 *.log
 *.log*
+
+*Zone.Identifier
