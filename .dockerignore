@@ -1,0 +1,10 @@
+**/node_modules/
+**/dist
+**/docker/*
+.git
+npm-debug.log
+.coverage
+.coverage.*
+.env
+.aws
+**/share/*
