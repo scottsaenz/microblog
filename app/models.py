@@ -77,7 +77,7 @@ class User(UserMixin, db.Model):
     about_me: so.Mapped[Optional[str]] = so.mapped_column(sa.String(140))
     last_seen: so.Mapped[Optional[datetime]] = so.mapped_column(
         default=lambda: datetime.now(timezone.utc))
-    # last_message_read_time: so.Mapped[Optional[datetime]] = so.mapped_column(sa.DateTime)
+    last_message_read_time: so.Mapped[Optional[datetime]]
 
     posts: so.WriteOnlyMapped['Post'] = so.relationship(
         back_populates='author')
@@ -161,7 +161,7 @@ class User(UserMixin, db.Model):
         return db.session.get(User, id)
 
     def unread_message_count(self):
-        last_read_time = datetime(1900, 1, 1)
+        last_read_time = self.last_message_read_time or datetime(1900, 1, 1)
         query = sa.select(Message).where(Message.recipient == self,
                                          Message.timestamp > last_read_time)
         return db.session.scalar(sa.select(sa.func.count()).select_from(
