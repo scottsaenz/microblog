@@ -197,7 +197,7 @@ def send_message(recipient):
 @bp.route('/messages')
 @login_required
 def messages():
-    # current_user.last_message_read_time = datetime.now(timezone.utc)
+    current_user.last_message_read_time = datetime.now(timezone.utc)
     current_user.add_notification('unread_message_count', 0)
     db.session.commit()
     page = request.args.get('page', 1, type=int)
